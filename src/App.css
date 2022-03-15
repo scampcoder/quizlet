@@ -18,7 +18,6 @@ body {
     color: #F5F7FB;
     font-family: "Inter", sans-serif;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .title {
@@ -33,6 +32,7 @@ body {
 }
 
 .lg-txt {
+    color: #293264;
     font-family: 'Karla', sans-serif;
 }
 
@@ -46,4 +46,30 @@ body {
     position: absolute;
     right: -50vw;
     top: -40vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+.quiz-question {
+    font-family: "Karla", sans-serif;
+    color: #293264;
+    font-size: large;
+}
+
+.quiz-btn {
+    background-color: #F5F7FB;
+    border-color: #4D5B9E;
+    color: #293264;
+    border-radius: 12px;
+    margin: 10px;
+    padding: 5px 10px;
+    min-width: 100px;
+    font-family: 'Karla', sans-serif;
+}
+
+.quiz-btn:focus, .quiz-btn:hover, .quiz-btn:active {
+    background-color: #4D5B9E;
+    color: #4D5B9E;
 }

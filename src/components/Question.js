@@ -13,13 +13,13 @@ export default function Question({q}) {
     
     const answerElements = answerOptions.map(answer => {
         return (
-                <button>{answer}</button>
+                <button className='quiz-btn'>{answer}</button>
         )
     })
 
     return (
         <div>
-            <h4>{q.question}</h4>
+            <h4 className='quiz-question'>{q.question}</h4>
             {answerElements}
         </div>
     )
