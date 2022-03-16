@@ -23,10 +23,22 @@ export default function Question({q}) {
         )
     })
 
+    function replaceHTMLCodes(question) {
+        let retStr = question;
+        if(question.includes("&quot;")){
+            retStr = question.replaceAll("&quot;", "'")
+        } 
+        if(question.includes("&amp;")){
+            retStr = question.replaceAll("&amp;", "&")
+        }
+        return retStr
+    }
+
     return (
         <div>
-            <h4 className="quiz-question">{q.question}</h4>
+            <h4 className="quiz-question">{replaceHTMLCodes(q.question)}</h4>
             {answerElements}
+            <hr />
         </div>
     )
 }

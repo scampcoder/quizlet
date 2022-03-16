@@ -21,14 +21,15 @@ export default function Quiz() {
 
     const questionElements = questions.map(question => {
         return (
-            <Question key={question.id} q={question}/>
+            <Question className="question" key={question.id} q={question}/>
         )
     })
     
     return (
-        <div>
+        <div className='quiz'>
             {/*<pre>{JSON.stringify(questions, null, 2)}</pre>*/}
             {questionElements}
+            <button className='check-btn'>Check Answers</button>
         </div>
     )
 }
