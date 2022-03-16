@@ -17,9 +17,19 @@ export default function Question({q}) {
     }, [])
     console.log(answerOptions)
     
+    function isHeld(id) {
+        setAnswerOptions(oldAs => oldAs.map(a => {
+            return a.id === id ? 
+                {...a, isHeld: true} :
+                {...a, isHeld: false}
+        }))
+    }
+
+    
+
     const answerElements = answerOptions.map(answer => {
         return (
-                <button className='quiz-btn' key={answer.id}>{answer.value}</button>
+                <button className={answer.isHeld ? 'quiz-btn-clicked' : 'quiz-btn'} key={answer.id} onClick={() => isHeld(answer.id)}>{answer.value}</button>
         )
     })
 
