@@ -117,3 +117,9 @@ button {
     margin: 15px;
     margin-left: 40%;
 }
+
+.score {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0;
+}

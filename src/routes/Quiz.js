@@ -63,10 +63,18 @@ export default function Quiz() {
     function checkAnswers() {
         if(questions.every(q => q.answers.filter(a => a.isHeld).length === 1)){
             setGameDone(true);
+            let fauxScore = 0;
+            for(let i=0; i<questions.length; i++){
+                const selectedAnswer = questions[i].answers.filter(a => a.isHeld)[0].value;
+                if(selectedAnswer === questions[i].correctAnswer){
+                    fauxScore++
+                    console.log(fauxScore)
+                }
+            }
+            setScore(fauxScore)
         } else {
             alert("Please select an answer for each question.")
         }
-
     }
     
     const checkBtn = <button className='check-btn' onClick={() => checkAnswers()}>Check Answers</button>;
@@ -83,7 +91,7 @@ export default function Quiz() {
         <div className='quiz'>
             {/*<pre>{JSON.stringify(questions, null, 2)}</pre>*/}
             {questionElements}
-            {score && <p>You scored {score}/5 correct answers</p>}
+            {gameDone && <p className="lg-txt score">You scored {score}/5 correct answers</p>}
             {gameDone ? playAgainBtn : checkBtn}
         </div>
     )
