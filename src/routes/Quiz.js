@@ -5,7 +5,7 @@ import {nanoid} from "nanoid"
 
 export default function Quiz() {
     const [questions, setQuestions] = React.useState([]);
-    const [score, setScore] = React.useState(0);
+    const [score, setScore] = React.useState(undefined);
     const [gameDone, setGameDone] = React.useState(false)
 
     React.useEffect(() => {
@@ -69,11 +69,22 @@ export default function Quiz() {
 
     }
     
+    const checkBtn = <button className='check-btn' onClick={() => checkAnswers()}>Check Answers</button>;
+    
+    function resetGame() {
+        setGameDone(false);
+        setScore(undefined);
+        getQuestions();
+    }
+    
+    const playAgainBtn = <button className='check-btn' onClick={() => resetGame()}>Play Again</button>
+    
     return (
         <div className='quiz'>
             {/*<pre>{JSON.stringify(questions, null, 2)}</pre>*/}
             {questionElements}
-            <button className='check-btn' onClick={() => checkAnswers()}>Check Answers</button>
+            {score && <p>You scored {score}/5 correct answers</p>}
+            {gameDone ? playAgainBtn : checkBtn}
         </div>
     )
 }
