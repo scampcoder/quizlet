@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/quizlet/static/css/main.1a7e3018.css",
-    "main.js": "/quizlet/static/js/main.4d161b55.js",
-    "index.html": "/quizlet/index.html",
-    "main.1a7e3018.css.map": "/quizlet/static/css/main.1a7e3018.css.map",
-    "main.4d161b55.js.map": "/quizlet/static/js/main.4d161b55.js.map"
+    "main.css": "/static/css/main.1a7e3018.css",
+    "main.js": "/static/js/main.4d161b55.js",
+    "index.html": "/index.html",
+    "main.1a7e3018.css.map": "/static/css/main.1a7e3018.css.map",
+    "main.4d161b55.js.map": "/static/js/main.4d161b55.js.map"
   },
   "entrypoints": [
     "static/css/main.1a7e3018.css",
