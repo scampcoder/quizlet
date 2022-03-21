@@ -61,8 +61,12 @@ export default function Quiz() {
     }
     
     function checkAnswers() {
-        setGameDone(true);
-        console.log(gameDone)
+        if(questions.every(q => q.answers.filter(a => a.isHeld).length === 1)){
+            setGameDone(true);
+        } else {
+            alert("Please select an answer for each question.")
+        }
+
     }
     
     return (
