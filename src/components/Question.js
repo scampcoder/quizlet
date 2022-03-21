@@ -1,9 +1,31 @@
 import React from 'react'
 
-export default function Question(props) {
+export default function Question(props) {    
+    console.log(props)
+    function buttonStyling(answer) {
+        if(!props.gameDone) {
+            return answer.isHeld ? 'quiz-btn-clicked' : 'quiz-btn'
+        } else {
+            if(answer.value === props.correctAnswer) {
+                return 'quiz-btn correct'
+            } else if (!(answer.value === props.correctAnswer) && answer.isHeld){
+                return 'quiz-btn wrong'
+            } else {
+                return 'quiz-btn'
+            }
+        }
+        
+    }
+    
     const answerElems = props.answers.map(answer => {
         return (
-            <button className={answer.isHeld ? 'quiz-btn-clicked' : 'quiz-btn'} key={answer.value} onClick={props.holdIt}>{replaceHTMLCodes(answer.value)}</button>
+            <button
+                key={answer.value} 
+                className={buttonStyling(answer)} 
+                onClick={props.holdIt}
+            >
+                    {replaceHTMLCodes(answer.value)}
+            </button>
         )
     })
     

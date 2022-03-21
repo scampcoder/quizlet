@@ -5,7 +5,8 @@ import {nanoid} from "nanoid"
 
 export default function Quiz() {
     const [questions, setQuestions] = React.useState([]);
-    console.log(questions)
+    const [score, setScore] = React.useState(0);
+    const [gameDone, setGameDone] = React.useState(false)
 
     React.useEffect(() => {
         getQuestions()
@@ -29,7 +30,16 @@ export default function Quiz() {
     const questionElements = questions.map(question => {
         if(question.answers){
             return (
-            <Question className="question" key={question.id} id={question.id} header={question.question} answers={question.answers} holdIt={(event) => holdIt(question.id, question.answers, event)}/>
+            <Question 
+                key={question.id} 
+                className="question" 
+                id={question.id} 
+                header={question.question} 
+                answers={question.answers}
+                correctAnswer={question.correctAnswer} 
+                holdIt={(event) => holdIt(question.id, question.answers, event)}
+                gameDone={gameDone}
+            />
         )
         }
         
@@ -42,7 +52,6 @@ export default function Quiz() {
                 ? {...q, answers: q.answers.map(a => changeAnswerHold(a, event))} : q
             })
         )
-        console.log(questions)
     }
     
     function changeAnswerHold(answer, event) {
@@ -51,11 +60,16 @@ export default function Quiz() {
                 : {...answer, isHeld: false}
     }
     
+    function checkAnswers() {
+        setGameDone(true);
+        console.log(gameDone)
+    }
+    
     return (
         <div className='quiz'>
             {/*<pre>{JSON.stringify(questions, null, 2)}</pre>*/}
             {questionElements}
-            <button className='check-btn'>Check Answers</button>
+            <button className='check-btn' onClick={() => checkAnswers()}>Check Answers</button>
         </div>
     )
 }
