@@ -53,9 +53,32 @@ export default function Quiz() {
             })
         )
     }
+
+    function replaceHTMLCodes(string) {
+        let retStr = string;
+        if(string.includes("&quot;")){
+            retStr = string.replaceAll("&quot;", "'")
+        } 
+        if(string.includes("&amp;")){
+            retStr = string.replaceAll("&amp;", "&")
+        }
+        if(string.includes("&#039;")){
+            retStr = string.replaceAll("&#039;", "'")
+        }
+        if(string.includes("&aring;")){
+            retStr = string.replaceAll("&aring;", "å")
+        } 
+        if(string.includes("&auml;")){
+            retStr = string.replaceAll("&auml;", "ä")
+        }
+        if(string.includes("&ouml;")){
+            retStr = string.replaceAll("&ouml;", "ö")
+        }
+        return retStr
+    }
     
     function changeAnswerHold(answer, event) {
-        return answer.value === event.target.innerHTML  ? 
+        return replaceHTMLCodes(answer.value) === event.target.innerHTML  ? 
                 {...answer, isHeld: true} 
                 : {...answer, isHeld: false}
     }
