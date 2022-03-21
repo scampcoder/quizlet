@@ -95,6 +95,14 @@ button {
     font-size: 15px;
 }
 
+.correct {
+    background-color: #94D7A2;
+}
+
+.wrong {
+    background-color: #F8BCBC;
+}
+
 .check-btn {
     background: #4D5B9E;
     border-radius: 10px;
