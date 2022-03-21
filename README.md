@@ -1,6 +1,6 @@
 # Quizlet React App
 
-A quick quiz app built using a trivia API and React. 4th solo project from the Scrimba React course.
+A quick quiz app built using a trivia API and React. This is 4th solo project from the Scrimba React course. Scrimba provides a Figma design, but the code is all me!
 
 # Things I Learned
 - How to set up simple routing with React Router Dom
